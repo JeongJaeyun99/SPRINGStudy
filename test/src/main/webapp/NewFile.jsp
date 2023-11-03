@@ -1,12 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-spring test
+<!-- tostring 단축키 ctrl+shift+z  -->
+<!-- getters and setters 단축키 ctrl+shift+x  -->
+스프링 테스트
+
+
 </body>
 </html>
