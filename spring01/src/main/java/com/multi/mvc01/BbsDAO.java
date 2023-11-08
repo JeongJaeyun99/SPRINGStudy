@@ -42,6 +42,8 @@ public class BbsDAO {
 			// 4.DB로 SQL문 전송
 			result = ps.executeUpdate();
 			System.out.println("4.ok----------");
+			con.close();
+			ps.close();
 		} catch (Exception e) {
 			System.out.println("에러가 발생함.");
 		}
@@ -65,6 +67,8 @@ public class BbsDAO {
 			// 4.DB로 SQL문 전송
 			result = ps.executeUpdate();
 			System.out.println("4.ok----------");
+			con.close();
+			ps.close();
 		} catch (Exception e) {
 			System.out.println("에러가 발생함.");
 		}
@@ -86,6 +90,8 @@ public class BbsDAO {
 			// 4.DB로 SQL문 전송
 			result = ps.executeUpdate();
 			System.out.println("4.ok----------");
+			con.close();
+			ps.close();
 		} catch (Exception e) {
 			System.out.println("에러가 발생함.");
 		}
@@ -117,6 +123,9 @@ public class BbsDAO {
 			list.add(dto);
 		}
 		System.out.println(list.size());
+		con.close();
+		ps.close();
+		rs.close();
 		return list;
 
 	}
@@ -142,6 +151,9 @@ public class BbsDAO {
 			dto2.setContent(rs.getString(3));
 			dto2.setWriter(rs.getString(4));
 		}
+		con.close();
+		ps.close();
+		rs.close();
 		return dto2;
 	}
 }

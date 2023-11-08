@@ -29,7 +29,7 @@
 			<!-- 로그인 -->
 			<% if (session.getAttribute("id") == null) { %>
 			<!--로그인이 되지 않았을 때 화면을 보이게 하면 됨.  -->
-			<form action="login.jsp">
+			<form action="login">
 				<table border="1" bordercolor='red' class="table table-striped">
 					<tr>
 						<td>아이디</td>
