@@ -2,15 +2,19 @@ package com.multi.mvc01;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ProductController {
+	
+	@Autowired
+	ProductDAO dao;
+	
 	@RequestMapping("insert3")
 	public String insert3(ProductDTO bag, Model model) {
-		ProductDAO dao = new ProductDAO();
 		int result = dao.insert(bag);
 		model.addAttribute("result",result);
 		if(result == 1) {
@@ -23,7 +27,6 @@ public class ProductController {
 	}
 	@RequestMapping("update3")
 	public String update3(ProductDTO bag, Model model) {
-		ProductDAO dao = new ProductDAO();
 		int result = dao.update(bag);
 		model.addAttribute("result",result);
 		if(result == 1) {
@@ -36,13 +39,11 @@ public class ProductController {
 	}
 	@RequestMapping("one2")
 	public void one2(ProductDTO bag, Model model) throws Exception{
-		ProductDAO dao = new ProductDAO();
 		ProductDTO bag2 = dao.one(bag);
 		model.addAttribute("bag",bag2);
 	}
 	@RequestMapping("list2")
 	public void list2(Model model) throws Exception{
-		ProductDAO dao = new ProductDAO();
 		ArrayList<ProductDTO> list = dao.list();
 		model.addAttribute("list",list);
 	}
