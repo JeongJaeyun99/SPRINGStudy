@@ -1,5 +1,5 @@
+<%@page import="java.util.List"%>
 <%@page import="com.multi.mvc01.BbsDTO2"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-	ArrayList<BbsDTO2> list = (ArrayList<BbsDTO2>)request.getAttribute("list");
+	List<BbsDTO2> list = (List<BbsDTO2>)request.getAttribute("list");
 	for(BbsDTO2 bag: list){
 %>
 	게시판 id : <%= bag.getId() %> <br>

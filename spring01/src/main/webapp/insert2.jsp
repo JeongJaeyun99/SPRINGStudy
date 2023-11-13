@@ -17,7 +17,7 @@
      <jsp:setProperty property="*" name="bag"/>
      
      <%
-     	BbsDAO dao = new BbsDAO();//????????
+     	BbsDAO dao = new BbsDAO();
      	int result = dao.insert(bag);//1
      	if(result == 1){
      		response.sendRedirect("bbs.jsp");
