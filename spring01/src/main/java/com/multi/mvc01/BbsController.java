@@ -1,6 +1,7 @@
 package com.multi.mvc01;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,7 @@ public class BbsController {
 	}			
 	@RequestMapping("list")
 	public void list(Model model) throws Exception{
-		ArrayList<BbsDTO2> list = dao.list();
+		List<BbsDTO2> list = dao.list();
 		model.addAttribute("list",list);
 //		System.out.println(list.size());
 	}

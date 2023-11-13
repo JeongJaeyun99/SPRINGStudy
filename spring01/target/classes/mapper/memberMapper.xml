@@ -5,7 +5,7 @@
 		insert into member values (#{id},#{pw},#{name},#{tel})
 	</insert>
 	<select id="login" parameterType="memberVO" resultType="int">
-	 	select * from member where id = #{id} and pw = #{pw}	
+	 	select count(*) from member where id = #{id} and pw = #{pw}	
 	</select>
 	
 </mapper>

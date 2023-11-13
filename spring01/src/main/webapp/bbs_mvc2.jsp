@@ -10,7 +10,7 @@
 <a href="list">게시판 전체 목록</a>
 <hr color="red">
 <form action="one">
-	보고싶은 게시판 번호<input name="id" value="2">
+	보고싶은 게시판 번호<input name="id" value="6">
 	<button>게시판 상세정보 요청</button>
 </form>
 </body>
