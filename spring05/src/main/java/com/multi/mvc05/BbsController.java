@@ -14,14 +14,17 @@ public class BbsController {
 	@Autowired
 	BbsDAO dao;
 	
+	@Autowired
+	ReplyDAO dao2;	
+	
 	@RequestMapping("insert2")
-	public void insert2(BbsDTO2 bag, Model model) {
+	public void insert2(BbsDTO bag, Model model) {
      	int result = dao.insert(bag);//1
      	System.out.println(result);
      	model.addAttribute("result",result);
 	}
 	@RequestMapping("update2")
-	public String update2(BbsDTO2 bag) {
+	public String update2(BbsDTO bag) {
 		int result = dao.update(bag);
 		if(result==1) {
 			return "redirect:bbs.jsp";
@@ -30,18 +33,20 @@ public class BbsController {
 		}
 	}
 	@RequestMapping("delete2")
-	public void delete(BbsDTO2 bag,Model model) {
+	public void delete(BbsDTO bag,Model model) {
 		int result = dao.delete(bag);
 		model.addAttribute("result",result);
 	}
 	@RequestMapping("one")
-	public void one(BbsDTO2 dto, Model model) throws Exception{
-		BbsDTO2 bag = dao.one(dto);
+	public void one(BbsDTO dto, Model model) throws Exception{
+		BbsDTO bag = dao.one(dto);
+		List<ReplyDTO> list = dao2.list(dto.getId());
 		model.addAttribute("bag",bag);
+		model.addAttribute("list",list);
 	}			
 	@RequestMapping("list")
 	public void list(Model model) throws Exception{
-		List<BbsDTO2> list = dao.list();
+		List<BbsDTO> list = dao.list();
 		model.addAttribute("list",list);
 //		System.out.println(list.size());
 	}

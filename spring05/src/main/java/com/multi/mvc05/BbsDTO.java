@@ -1,6 +1,6 @@
 package com.multi.mvc05;
 
-public class BbsDTO2 {
+public class BbsDTO {
 	private int id;
 	private String title;
 	private String content;
