@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BbsController {
@@ -49,5 +50,11 @@ public class BbsController {
 		List<BbsDTO> list = dao.list();
 		model.addAttribute("list",list);
 //		System.out.println(list.size());
+	}
+	@RequestMapping("jsonbbs")
+	@ResponseBody
+	public List<BbsDTO> list() throws Exception{
+		List<BbsDTO> list = dao.list();
+		return list;
 	}
 }
