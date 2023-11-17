@@ -9,7 +9,7 @@
 <body>
 <div id="map" style="width:100%;height:800px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c945ed4be0b2f4c24199bae36386705"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
 <script type="text/javascript" src="resources/js/jquery-3.7.1.js"></script>
 <script>
 		$(function() {
