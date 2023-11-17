@@ -8,10 +8,12 @@
    <typeAliases>
       <typeAlias type="com.multi.mvc05.BbsDTO" alias="bbsVO"></typeAlias>
       <typeAlias type="com.multi.mvc05.ReplyDTO" alias="replyVO"></typeAlias>
+      <typeAlias type="com.multi.mvc05.MapVO" alias="mapVO"></typeAlias>
    </typeAliases>
    <mappers>
    <!-- SQL문 정의하는 파일들의 목록을 지정. -->
       <mapper resource="mapper/bbsSQL.xml" />
       <mapper resource="mapper/replySQL.xml" />
+      <mapper resource="mapper/mapSQL.xml" />
    </mappers>
 </configuration>

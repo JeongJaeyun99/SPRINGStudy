@@ -3,12 +3,16 @@ package com.multi.mvc05;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class RestController {
+	
+	@Autowired 
+	MapDAO mapDAO;
 	
 	@RequestMapping("string")
 	@ResponseBody // views로 안가고 바로 데이터만 넘겨쥼
@@ -47,4 +51,18 @@ public class RestController {
 		map.setLon(127.059151);
 		return map;
 	}
+	
+	@RequestMapping("map2")
+	@ResponseBody
+	public MapVO one2(String location) {
+		return mapDAO.one(location);
+	}
+	
+	@RequestMapping("map3")
+	@ResponseBody
+	public List<MapVO> all() {
+		return mapDAO.all();
+	}
 }
+
+
