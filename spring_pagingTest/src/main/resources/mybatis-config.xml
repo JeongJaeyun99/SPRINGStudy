@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.multi.test100.BbsVO" alias="bbsVO"></typeAlias>
+		<typeAlias type="com.multi.test100.PageVO" alias="pageVO"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
