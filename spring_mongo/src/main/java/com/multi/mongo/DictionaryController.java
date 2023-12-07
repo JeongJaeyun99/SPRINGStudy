@@ -13,6 +13,7 @@ public class DictionaryController {
 	
 	@RequestMapping("emotion")
 	public void one(String sentence,Model model) {
-		service.emotion(sentence);
+		String result = service.emotion(sentence);
+		model.addAttribute("result",result);
 	}
 }
