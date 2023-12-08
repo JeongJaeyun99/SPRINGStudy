@@ -11,7 +11,7 @@
 		select *
 		from
 			(select row_number() over(order by id desc) as bbs_no,
-			id,title,content
+			id,title,content,writer
 			from bbs b) b2
 		where b2.bbs_no between ${start} and ${end}
 	</select>

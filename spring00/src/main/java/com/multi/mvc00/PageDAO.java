@@ -8,16 +8,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class PageDAO {
-	
+
 	@Autowired
 	SqlSessionTemplate my;
 	
-	public List<BbsVO> list(PageVO pageVO) {
-		return my.selectList("bbs.list",pageVO);
+	public List<BbsVO> list1(PageVO pageVO) {
+		return my.selectList("bbs.list", pageVO);
 	}
 	
 	public int count() {
 		return my.selectOne("bbs.count");
 	}
-	
 }
