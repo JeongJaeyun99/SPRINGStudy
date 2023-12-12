@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-세팅 완료!
+<a href="young"><button>청년 지원 정책 api로 받아서 db에 저장하기</button></a>
 </body>
 </html>
