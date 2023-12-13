@@ -19,14 +19,14 @@
 <script type="text/javascript">
 	var stompClient = null;
 	function connect() {
-		var socket = new SockJS("${pageContext.request.contextPath}/chat")
+		var socket = new SockJS("${pageContext.request.contextPath}/chat2")
 		stompClient = Stomp.over(socket)
 		stompClient.connect({}, function(frame) {
 			console.log("연결됨." + frame)
-			stompClient.subscribe("/topic/messages",function(messageOutput){
+			stompClient.subscribe("/topic/messages2",function(messageOutput){
 				console.log(JSON.parse(messageOutput.body))
 				json = JSON.parse(messageOutput.body)
-				$('#response').append(json.from + "님 : " + json.text + "(" + json.date + ")<br>")
+				$('#response').append(json.menu + "<br>")
 			}) // 채팅방 가입(채팅방 이름)
 			
 		})
@@ -38,10 +38,10 @@
 		}
 	}
 	function sendMessage() {
-		var from = document.getElementById("from").value
+		var from = document.getElementById("guest").value
 		var text = document.getElementById("text").value
-		stompClient.send("/app/chat",{},JSON.stringify({
-			"from" : from,
+		stompClient.send("/app/chat2",{},JSON.stringify({
+			"guest" : guest,
 			"text" : text
 		}))
 		$('#text').val("")
@@ -51,11 +51,14 @@
 <body onload="disconnect()">
 	<br>
 	<br>
+	<img src="resources/img/chat3.png" width="500" height="200">
+	<h3>다사 쇼핑몰에 오신것을 환영합니다.</h3>
 	<div>
 		<div class="input-group mb-3 input-group-lg">
 			<span class="input-group-text">닉네임 입력:</span> <input type="text"
-				class="form-control" id="from">
+				class="form-control" id="guest">
 		</div>
+		<hr color="red">
 		<br />
 		<div>
 			<button id="connect" onclick="connect();" class="btn btn-danger"
@@ -65,13 +68,13 @@
 		</div>
 		<br />
 		<div id="conversationDiv">
-			<input type="text" id="text" placeholder="Write a message..."
+			<input type="text" id="text" placeholder="번호를 선택해 주세요."
 				class="form-control" />
 			<button id="sendMessage" onclick="sendMessage();"
 				class="btn btn-primary">Send</button>
-
+			<div>챗봇 >> 1)상품소개 2)주문확인</div>
 			<p id="response" class="alert alert-success">
-			<p>현준-누누티비 시즌2나온대요(11:15)</p>
+
 			</p>
 		</div>
 	</div>

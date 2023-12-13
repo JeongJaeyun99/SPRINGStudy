@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>FM 고객센터 ChatBot</title>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <link
@@ -19,14 +19,14 @@
 <script type="text/javascript">
 	var stompClient = null;
 	function connect() {
-		var socket = new SockJS("${pageContext.request.contextPath}/chat")
+		var socket = new SockJS("${pageContext.request.contextPath}/chat3")
 		stompClient = Stomp.over(socket)
 		stompClient.connect({}, function(frame) {
 			console.log("연결됨." + frame)
-			stompClient.subscribe("/topic/messages",function(messageOutput){
+			stompClient.subscribe("/topic/messages3",function(messageOutput){
 				console.log(JSON.parse(messageOutput.body))
 				json = JSON.parse(messageOutput.body)
-				$('#response').append(json.from + "님 : " + json.text + "(" + json.date + ")<br>")
+				$('#response').append(json.menu + "<br>")
 			}) // 채팅방 가입(채팅방 이름)
 			
 		})
@@ -38,10 +38,10 @@
 		}
 	}
 	function sendMessage() {
-		var from = document.getElementById("from").value
+		var guest = document.getElementById("guest").value
 		var text = document.getElementById("text").value
-		stompClient.send("/app/chat",{},JSON.stringify({
-			"from" : from,
+		stompClient.send("/app/chat3",{},JSON.stringify({
+			"guest" : guest,
 			"text" : text
 		}))
 		$('#text').val("")
@@ -51,10 +51,13 @@
 <body onload="disconnect()">
 	<br>
 	<br>
+	<img src="resources/img/chat1.png" width="500" height="200">
+	<h3>FM 고객센터 ChatBot</h3>
+	<hr color="red">
 	<div>
 		<div class="input-group mb-3 input-group-lg">
 			<span class="input-group-text">닉네임 입력:</span> <input type="text"
-				class="form-control" id="from">
+				class="form-control" id="guest">
 		</div>
 		<br />
 		<div>
@@ -65,13 +68,14 @@
 		</div>
 		<br />
 		<div id="conversationDiv">
-			<input type="text" id="text" placeholder="Write a message..."
+			<input type="text" id="text" placeholder="번호를 선택해 주세요."
 				class="form-control" />
 			<button id="sendMessage" onclick="sendMessage();"
 				class="btn btn-primary">Send</button>
-
+			<div>챗봇 >> FM ChatBot입니다
+				무엇을 도와드릴까요?
+				1)자주묻는 질문 2)문의 하기 3)건의 하기</div>
 			<p id="response" class="alert alert-success">
-			<p>현준-누누티비 시즌2나온대요(11:15)</p>
 			</p>
 		</div>
 	</div>
