@@ -26,7 +26,7 @@
 			stompClient.subscribe("/topic/messages3",function(messageOutput){
 				console.log(JSON.parse(messageOutput.body))
 				json = JSON.parse(messageOutput.body)
-				$('#response').append(json.menu + "<br>")
+				$('#response').append(json.menu + "  " + json.date  + "<br>")
 			}) // 채팅방 가입(채팅방 이름)
 			
 		})

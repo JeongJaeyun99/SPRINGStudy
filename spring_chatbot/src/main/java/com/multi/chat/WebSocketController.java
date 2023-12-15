@@ -73,7 +73,7 @@ public class WebSocketController {
 		}
 		message3.setMenu(menu);
 		Date date = new Date();
-		message3.setDate(date.getHours() + "시" + date.getMinutes() + "분");
+		message3.setDate(date.getHours() + ":" + date.getMinutes());
 		return message3;
 	}
 }
