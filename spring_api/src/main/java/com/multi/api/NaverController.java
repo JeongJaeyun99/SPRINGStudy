@@ -15,4 +15,5 @@ public class NaverController {
 		service.insert(navervo);
 	}
 	
+	
 }

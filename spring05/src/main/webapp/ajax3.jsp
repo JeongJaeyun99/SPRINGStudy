@@ -14,14 +14,13 @@
 				url : "movie",
 				data : {
 					title : $('#title').val(),
-					price : $('#price').val(),
+					price : $('#price').val()
 				},
 				success : function(x) {
 					$('#result').html(x)
 				}
 			})
 		})
-		$('')
 	})//body($)
 	
 </script>
